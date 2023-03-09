@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FontAI</title>
+	<style>
+		.font-preview {
+			margin: 20px;
+			padding: 20px;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+	<h1>FontAI</h1>
+
+	<p>Enter some text and select a font to preview:</p>
+
+	<input type="text" id="preview-text" value="The quick brown fox jumps over the lazy dog.">
+
+	<select id="font-selector">
+		<option value="Arial">Arial</option>
+		<option value="Times New Roman">Times New Roman</option>
+		<option value="Helvetica">Helvetica</option>
+		<option value="Calibri">Calibri</option>
+		<option value="Georgia">Georgia</option>
+		<!-- Add more font options here -->
+	</select>
+
+	<div class="font-preview" id="font-preview"></div>
+
+	<script>
+		// Get the preview text and font selector
+		const previewText = document.getElementById('preview-text');
+		const fontSelector = document.getElementById('font-selector');
+
+		// Get the font preview element
+		const fontPreview = document.getElementById('font-preview');
+
+		// Update the font preview when the font is changed
+		fontSelector.addEventListener('change', () => {
+			fontPreview.style.fontFamily = fontSelector.value;
+		});
+
+		// Update the font preview when the text is changed
+		previewText.addEventListener('input', () => {
+			fontPreview.textContent = previewText.value;
+		});
+
+		// Set the initial font preview
+		fontPreview.style.fontFamily = fontSelector.value;
+		fontPreview.textContent = previewText.value;
+	</script>
+</body>
+</html>
